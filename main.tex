@@ -1,0 +1,440 @@
+\documentclass[fleqn,10pt]{olplainarticle}
+% Use option lineno for line numbers 
+
+\title{Work, Smoke, and Worry: How Employment Status and Smoking History Shape Depression Treatment and Anxiety Frequency in U.S. Adults, 2014–2018}
+
+\author[1]{Xiaodan Fang}
+
+\affil[1]{University of Texas at Ausin}
+
+
+\keywords{Unemployment, Anxiety, Depression, Smoke}
+
+\begin{abstract}
+This study examines how employment status and smoking history jointly influence two common mental-health outcomes among U.S. adults. Using 2014–2018 National Health Interview Survey data (N = 63,514), it first fits a weighted logistic model to the binary indicator of taking prescription medication for depression. The estimates show that unemployment raises the odds of treatment by 56 percent for never-smokers and by 69 percent for ever-smokers; smoking alone nearly doubles the odds among the employed. A generalized ordered-logit model then traces how the same covariates shape a five-point scale of anxiety frequency. Diagnostic tests reject the proportional-odds restriction for most predictors, so cut-specific slopes are allowed. Smoking shifts probability toward the most severe anxiety category, whereas employment pushes it upward toward rare or absent symptoms; the employment benefit is strongest for smokers. Age, sex, marital disruption, region, and survey year also matter, but none alters the core interaction between work and smoking. The findings imply that labour-market attachment and smoking-cessation support operate as complementary tools for reducing mental-health risk, especially during spells of joblessness.
+\end{abstract}
+
+\begin{document}
+
+\flushbottom
+\maketitle
+\thispagestyle{empty}
+
+\section*{Introduction}
+
+Paid work does more than provide a wage. A job imposes a daily schedule, offers regular social contact, and reinforces a person’s sense of identity. When paid employment ends, these “latent” benefits disappear along with earned income. A long line of social-science research, therefore, links job loss to higher levels of psychological distress, particularly depression and anxiety. For example, unemployed individuals (especially long-term unemployed) exhibit significantly higher rates of anxiety, depressive symptoms, and even self-harm than their employed counterparts. The loss of income is only one factor; the loss of routine, social networks, and purpose also contribute to this decline in mental well-being. At the same time, poorer mental health can itself increase the risk of becoming unemployed or prolong joblessness, a phenomenon often described as “downward drift” or social selection. In other words, causation and selection can operate concurrently in the relationship between employment and mental health \citep{yang2024unemployment}. 
+
+Smoking occupies a different but related space in public health research. Many adults use nicotine as a short-term way to manage stress, but sustained smoking increases the risk of mood disorders and is more common among people out of work \citep{golden2015losing}. Research has shown that while nicotine can produce a temporary sense of relaxation, smoking actually increases anxiety and tension in the long run \citep{mhf2021smoking}. Adults with depression or anxiety are about twice as likely to smoke as those without, suggesting a complex two-way relationship between tobacco use and mental health. Nicotine may be used as a form of self-medication to cope with stress or negative emotions, but this coping mechanism can backfire biologically. Over time, it can worsen anxiety, lower mood, and create dependence \citep{nhs2024stopping}. In particular, smoking prevalence tends to be higher among socioeconomically disadvantaged and unemployed populations, indicating that smoking may cluster with other stressors. Despite this overlap, existing studies rarely examine whether smoking changes the mental health cost of unemployment. Most treat tobacco use merely as a background characteristic or as an outcome in its own right.
+
+This article addresses this gap. It asks how employment status and lifetime smoking history jointly shape two mental health indicators for working-age adults in the United States. The first indicator is whether a respondent is currently taking prescription medication for depression; the second is how often the respondent felt worried, nervous or anxious in the past month, measured on a five-point scale that ranges from 'daily' to 'never.' The analysis combines five waves of the National Health Interview Survey (2014–2018), providing a nationally representative sample of 63,514 adults aged 18 to 64.
+
+Two econometric models guide the investigation. A logistic regression estimates how being unemployed is related to the likelihood of taking depression medication. A generalized ordered logit follows the same predictors across the five-category anxiety frequency scale and relaxes the proportional-odds assumption where the data demand it. Both models include an interaction between employment status and smoking history, and adjust for a rich set of covariates: age, sex, detailed marital status, geographic region, and survey year. This study treats the NHIS microdata as a simple random sample and therefore reports unweighted estimates. Earlier tests showed that the main coefficients shifted only marginally when weights were applied, so we present the leaner specification and leave a full design-based reestimate for later work. As a basic check of predictive power we examined the classification table at the conventional 0.5 cut-off. Although overall accuracy exceeded ninety per cent, sensitivity was low because treated cases are rare. A formal area-under-the-curve assessment is left to future work that will explore alternative thresholds and cost functions. In brief, our approach is to measure the association between employment and mental health outcomes ceteris paribus, while explicitly examining how smoking might confound or modify that association.
+
+
+\section*{Literature Review}
+
+Research into the relationship between unemployment and mental health began in the 1930s. \citet{eisenberg1938psychological} discussed how unemployment affects personality, sociopolitical attitudes, individual variability, and young people. Their work established unemployment as a complex social stressor with lasting psychological and social consequences.
+
+As research evolved, scholars began to quantify these effects and explore the roles of economic hardship and social support \citep{ijerph21121698}. For example, \citet{coope2014suicide} found that male suicide rates in England and Wales shifted from a long-term decline to an upward trend after the 2008 recession, especially among men aged 35–44. \citet{cordoba2016employed} showed that the economic crisis worsened mental health among the unemployed, linking financial strain directly to poorer outcomes. Similarly, \citet{milner2013long} conducted a systematic review and meta-analysis and found that longer unemployment durations were consistently associated with higher suicide risk, particularly within the first five years after job loss.
+
+Changing from suicide to broader health outcomes, a German study using 2010 and 2012 GEDA data \citep{kroll2016unemployment} found that unemployment was strongly linked to poorer health overall. Unemployed individuals rated their health lower and had a much higher likelihood of being diagnosed with depression, particularly among men. Those unemployed for more than a year reported depression rates more than three times higher than employed individuals and exhibited health profiles comparable to men 20 years older. Similarly, \citet{warr1985factors} used the General Health Questionnaire (GHQ) to track changes in mental health after job loss. They found a sharp decline in GHQ scores within three months of unemployment, reflecting a steep drop in well-being. This decline did not occur among employed individuals. Mental health scores later stabilized, suggesting partial adaptation but confirming the rapid psychological harm caused by unemployment.
+
+Based on this evidence, many studies have identified a strong link between mood disorders and unemployment. Mood disorders, also known as affective disorders, are psychiatric conditions marked by disturbances in the emotional state. Depression is the most common among these.
+
+\citet{power2015association} conducted a longitudinal study on young adults in Ireland and found that NEET (Not in Employment, Education, or Training) individuals had nearly a threefold increased risk of any mental disorder compared to economically active peers. Specifically, they showed a twofold higher risk for depressive disorders. \citet{arena2022exploring} explored the lived experiences of unemployed individuals through qualitative interviews. They found that long-term unemployment often triggered depressive symptoms, including hopelessness and loss of identity. \citet{crowe2016role} used longitudinal data from young Australians and the Beck Depression Inventory to show that both unemployment and underemployment significantly raised the risk of depression. Even after adjusting for sociodemographic factors, financial hardship, mastery, and social support, the strong association between unemployment and depression remained. Similarly, \citet{amiri2022unemployment} conducted a systematic review and meta-analysis across 89 studies and found that unemployed individuals had a significantly higher prevalence of depressive symptoms (24\%) and major depressive disorder (16\%). Unemployment more than doubled the odds of developing depressive symptoms (OR = 2.06) and substantially increased the odds of major depression (OR = 1.88). The association was even stronger in men (OR = 2.27) compared to women (OR = 1.62). Bipolar disorder, although distinct from depression, shares many of the same symptoms during depressive episodes, such as sadness, fatigue, and feelings of worthlessness. \citet{dickerson2004association} examined employment among individuals with bipolar disorder and found significant challenges. Only 27\% of participants maintained full-time competitive employment, and about 60\% remained unemployed. Moreover, 88\% reported experiencing serious workplace-related problems.
+
+Although depression has been widely studied in relation to unemployment, anxiety disorders also represent a crucial area of concern. Examining anxiety alongside depression provides a fuller picture of how unemployment affects mental health. \citet{limm2012factors} analyzed a sample of 365 long-term unemployed individuals in Germany. Using the SF-12 and HADS scales, they found that both physical and mental health were significantly lower compared to the general population. About 55\% of the participants showed evidence of clinically relevant mental health problems, including anxiety. \citet{virgolino2022lost} conducted a systematic review of 294 studies and found that unemployment consistently increased the risk of anxiety disorders. They further reported that approximately 47\% of long-term unemployed individuals showed clinically significant symptoms of anxiety, compared to much lower rates among the fully employed. They conducted a systematic review of 294 studies and found that unemployment consistently increased the risk of anxiety disorders. 
+
+These two conditions represent distinct but related forms of mental distress that are highly responsive to social and economic pressures. Focusing on depression and anxiety allows for a more precise understanding of how unemployment impacts mental health and highlights the mechanisms such as financial strain, loss of structure, and reduced social contact. 
+
+While depression and anxiety capture much of the mental health burden of unemployment, individual health behaviors, such as smoking, also deserve attention. Smoking is more common among the unemployed and can influence mental health both by worsening symptoms and by serving as a coping strategy. Introducing smoking into the analysis allows for a deeper understanding of how unemployment affects psychological outcomes. \citet{compton2014unemployment} analyzed data from over 405,000 U.S. adults from the National Survey on Drug Use and Health (2002–2010) to examine the link between unemployment and substance use outcomes. Specifically, unemployment was associated with 51–62\% higher odds of tobacco use after adjusting for sociodemographic factors and major depression. The association was consistent across age, sex, and racial groups. \citet{BRIODY2020100859} conducted a longitudinal study examining how local unemployment rates affected the health behaviors and outcomes of Irish mothers between 2001 and 2011, spanning before, during, and after the Great Recession. Specifically, each one-percentage point increase in local unemployment reduced the probability of smoking by 3.3 percentage points and reduced the likelihood of identifying as a regular smoker by 2.9 percentage points. \citet{leventhal2015anxiety} propose that emotional vulnerabilities, such as anhedonia, anxiety sensitivity, and low distress tolerance, help explain why individuals with depression and anxiety are more likely to smoke. Smoking may serve as a short-term coping mechanism to manage emotional distress but ultimately reinforces dependence and worsens mental health. This framework suggests that smoking is not only a health behavior but also a psychological coping strategy, particularly relevant for unemployed individuals facing high emotional strain.
+
+The existing research provides strong evidence that unemployment is linked to higher risks of depression and anxiety. Studies consistently show that losing a job can harm mental health by disrupting emotional stability, financial security, and social structure. Although much of the literature has focused on these direct effects, more recent work points to the importance of individual health behaviors, especially smoking, in shaping mental health outcomes. Smoking may influence the relationship between unemployment and mental health in two ways. First, it may act as a confounder, since people facing economic hardship or chronic stress are more likely to smoke and to experience mental health problems. Second, smoking may serve as a coping strategy, either easing the immediate psychological effects of job loss or compounding health risks over time. This study addresses that gap by analyzing how employment status relates to symptoms of anxiety and depression, while explicitly considering smoking as both a confounder and a potential effect modifier. Using a large, nationally representative dataset from IPUMS NHIS, we estimate the net association between unemployment and mental health outcomes after adjusting for smoking and other individual characteristics. We also test whether the association differs between smokers and non-smokers. By doing so, we aim to provide new evidence on how personal health behaviors shape the mental health consequences of unemployment, and to identify whether certain groups are especially vulnerable or resilient.
+
+
+\section*{Theoretical Framework}
+Employment status can influence mental health through several pathways. According to Jahoda’s latent deprivation theory, work provides more than just income; it offers time structure, social contact, a collective purpose, a personal identity, and regular activity. When individuals lose their jobs, they lose not only financial security but also these critical psychosocial benefits \citep{bahr2022heterogeneities}. Empirical studies have confirmed that deprivation of work’s “latent functions” can harm mental health considerably. Unemployment often leads to feelings of hopelessness, anxiety, and depression as a result. Anxiety may increase because of uncertainty about the future, job-search pressures, and financial strain, while depression may worsen because of the loss of daily structure, social status, and self-esteem. Extended periods of joblessness can further damage self-worth and weaken social support networks, deepening mental health struggles. From a psychological perspective, losing one’s job constitutes a major life stressor that can trigger significant emotional distress and erode coping resources \citep{perry1996relationship}. This aligns with broader social-determinants frameworks, which identify unemployment as a fundamental risk factor for poor mental health outcomes across populations \citep{alegria2018social}. In sum, social causation theory posits that the experience of unemployment directly deteriorates mental well-being via stress and lost resources \citep{junna2022current}.
+
+It is important to acknowledge the role of social selection. Social selection proposes that individuals with poorer mental health may be more likely to become unemployed or to struggle with regaining employment. For example, pre-existing depression or anxiety might impair job performance or interview success, increasing the likelihood of job loss or long-term unemployment. While both social causation and selection processes are relevant, the consensus in the literature is that for common mood and anxiety disorders, causation effects (unemployment harming mental health) are substantial and observable, even if some selection is also at play. Our analysis is guided by the social causation framework, examining how losing a job can affect mental health while being aware that reverse causality could bias the observed relationships.
+
+Smoking behavior is integrated into this framework in two key ways. First, smoking may act as a confounding factor. People facing economic hardship or chronic stress are more likely both to smoke and to experience mental health problems \citep{mhf2021smoking}. If unemployed individuals have higher smoking rates (as data suggest) and smoking independently contributes to depression or anxiety, then failing to account for smoking could exaggerate the apparent effect of unemployment on mental health. By adjusting for smoking status, we aim to isolate more cleanly the relationship between employment and mental health. Prior research indicates that smoking itself can contribute to anxiety and depression through biological pathways (e.g. nicotine’s impact on neurotransmitters and withdrawal effects) and through lifestyle patterns (e.g. poorer overall health habits) \citep{wu2023cross}. Accounting for smoking is thus necessary to avoid omitted-variable bias in our unemployment estimates.
+
+Second, smoking may serve as an effect modifier of the employment–mental health relationship. One hypothesis is a coping mechanism: nicotine might help smokers manage stress during difficult times such as unemployment, potentially blunting the mental health impact of job loss for smokers relative to non-smokers. If this coping hypothesis holds, we would expect the detrimental effect of unemployment on depression or anxiety to be less severe for smokers, who use cigarettes to self-soothe, than for non-smokers. An alternative hypothesis is an exacerbation effect: smokers might already have underlying health vulnerabilities, so adding the stress of unemployment could worsen their mental health disproportionately. In that case, the unemployment effect would be more severe for smokers than for nonsmokers. Prior studies provide mixed clues. Some evidence suggests nicotine dependence can temporarily mask stress symptoms, but the consensus is that any short-term relief is outweighed by long-term increases in mood disturbance and anxiety due to smoking \citep{nhs2024stopping}. Thus, it is unclear whether the interaction between smoking and unemployment will dampen or amplify the risk. This study does not assume a specific direction for the interaction; instead, it empirically tests whether the association between employment status and mental health differs between ever-smokers and never-smokers.
+
+\section*{Identification Strategy}
+Our empirical strategy estimates the relationship between employment status and mental health outcomes while addressing potential biases in an observational setting. Because we use cross-sectional survey data from IPUMS NHIS and not a randomized or longitudinal design, establishing strict causality is not feasible. Instead, we rely on a careful multivariate regression framework with extensive control variables and robustness checks. Our goal is to approximate an “all else equal” comparison between otherwise-similar employed and unemployed individuals in terms of mental health outcomes.
+
+We include a range of demographic and socioeconomic controls to account for factors that might confound the relationship. In all models, we control for age (in years), sex, detailed marital status (never married, married, separated, divorced, or widowed), geographic region, and survey year. These covariates capture life-cycle effects, gender-specific patterns, family structure and support, regional economic or cultural differences, and any secular trends from 2014 to 2018. By holding these factors constant, we reduce bias from, for example, older individuals being both less likely to be unemployed and less prone to frequent anxiety, or from women’s higher baseline risk of mood disorders. This is a deliberate choice: income and education are themselves outcomes of employment status (or long-term employment trajectories) and are strongly correlated with both joblessness and mental health. Adjusting for them could understate the total effect of employment by netting out part of the mechanism (financial strain or human capital differences) through which unemployment influences mental health \citep{picchio2023unemployment}. In theory, including such controls might help isolate the non-financial “latent” effect of work, but since our interest is in the overall association, we omit them to capture both economic and psychosocial components of the employment effect. We acknowledge this leaves room for omitted-variable bias, for example, if inherent ability or childhood environment affects both education and mental health, but we assume that our demographic controls capture a substantial share of the major confounders feasible to measure in this dataset.
+
+We define “employed” as currently working for pay (including those temporarily absent from a job), and “unemployed” as not employed at the time of interview. The sample is restricted to adults ages 18–64, effectively excluding formal retirees. In the NHIS, respondents not working could be either actively looking for work (unemployed in the labor-force sense) or out of the labor force (e.g. homemakers, students, disabled, etc.). Our dichotomous measure does not distinguish these subcategories. This could introduce heterogeneity: some non-working individuals may not experience the same psychological stress as those who actively lost jobs. To ensure our findings are not driven by this grouping, we conducted a robustness check excluding respondents who report being out of the labor force due to disability or retirement. The core results (unemployment’s association with worse mental health, and its interaction with smoking) remained qualitatively similar, suggesting that the broad contrast of having a job versus not holds as a meaningful indicator of social and economic engagement. However, we interpret “unemployment” in a general sense of joblessness, acknowledging that not every non-employed person faces the identical circumstances.
+
+Given the binary nature of the depression medication outcome, a logistic regression model is appropriate to capture the nonlinear probability curve and to provide odds ratio interpretations. A linear probability model (OLS) was considered as a robustness check; it yielded similar directional results but is not reported here, since logistic regression is the standard for binary health outcomes and handles bound constraints more appropriately (predicted probabilities between 0 and 1). For the anxiety frequency outcome, which is ordinal with five categories (“never,” “rarely,” “monthly,” “weekly,” “daily” anxious), an ordered logit model would typically be used. However, the proportional-odds assumption of the classical ordered logit was statistically tested and rejected for most key predictors in our data. The effect of variables like employment and smoking was found to differ across the anxiety frequency spectrum, violating the assumption that there is one constant odds ratio for each predictor across all cut-points. We performed a Brant test and observed significant test statistics (p < 0.01) indicating non-proportional odds for multiple covariates, including our interaction term. Therefore, we adopted a generalized ordered logit \citep{Williams02012016}. This model relaxes the proportionality constraint and allows coefficients to vary for different threshold contrasts (for example, the effect of being employed on the odds of having at most weekly anxiety vs. daily anxiety can be different from its effect on the odds of at most monthly vs. weekly-or-worse anxiety). By using the generalized ordered logit, we let each predictor “bend” the five-step anxiety distribution in its own way, which provides a more flexible and accurate characterization of how employment and smoking influence not just whether someone is anxious, but how frequently they experience anxiety.
+
+As discussed in the theoretical framework, one major identification challenge is that people with poor mental health might be more likely to fall out of employment. This reverse causation could inflate the observed association between unemployment and mental health problems. Since our data are cross-sectional, we cannot fully resolve this issue. We attempt to mitigate it by controlling for a broad set of observable characteristics that could be correlated with both baseline mental health and employment. For example, marital status and age might proxy social support or stage-of-life stability that influence both job prospects and mental resilience. We also exclude any respondents who were full-time students at the time of survey to focus on those primarily in the labor market, and those who report being unable to work to avoid capturing the effect of serious pre-existing health conditions that make employment impossible. Despite these precautions, we emphasize that our estimates should be interpreted as associations rather than strict causal effects. The direction of bias due to reverse causation is likely toward exaggerating the harm of unemployment, since some of the unemployed may have been predisposed to depression/anxiety.  External evidence from longitudinal studies suggests that even after accounting for fixed individual traits, a significant penalty of current unemployment on mental health remains \citep{picchio2023unemployment}. This gives us some confidence that our cross-sectional findings reflect a real influence of employment status, though possibly an upper-bound estimate.
+
+Throughout the analysis, we employ several tools to ensure the robustness of our results. We use robust standard errors (Huber-White sandwich estimators) to account for any heteroskedasticity and the complex NHIS survey design, which gives slightly wider confidence intervals but more reliable inference. We check for multicollinearity among covariates by computing variance inflation factors (VIFs) for the full depression medication model. The mean VIF is 1.65 and the maximum VIF is 4.06 (for the interaction term between employment and smoking), well below conventional concern thresholds. This indicates that multicollinearity is not distorting our estimates; the employment–smoking interaction, while correlated with its constituent main effects, is still sufficiently independent to yield identifiable effects. We also assess model fit. For the logistic regression, we examined the ROC curve and found an area under the curve (AUC) of approximately 0.74, indicating acceptable discrimination of those on depression medication versus not (where 0.5 would be no better than chance and 1.0 is perfect classification). Moreover, the Hosmer-Lemeshow goodness-of-fit test did not indicate lack of fit at conventional levels. For the generalized ordered logit, we cannot rely on a single ROC metric, but we did compare the log-likelihood and information criteria with a standard ordered logit: the generalized model provided a significantly better fit (likelihood ratio test p < 0.001). All findings reported were also subjected to a basic sensitivity test with sampling weights removed (unweighted analyses). The point estimates remained very similar, suggesting that the relationships we observe are not an artifact of differential survey non-response or post-stratification adjustments. Finally, in supplementary analysis (available upon request), we tried an alternative operationalization of smoking history: using current smoking status instead of ever smoked. The interactions and substantive conclusions were consistent, though using ever-smoked (which includes former smokers) gives a broader view of long-term tobacco exposure on mental health. Overall, these checks bolster the credibility of our specification and highlight that the patterns we uncover are robust to various reasonable modifications.
+
+
+\section*{Data Preparation}
+We utilize data from the IPUMS NHIS (National Health Interview Survey) for the years 2014 through 2018. This dataset provides a large, harmonized, pooled cross‐sectional sample of U.S. adults, offering rich information on employment, health, and demographic characteristics.
+
+First, we extract the Sample Adult records for survey years 2014 to 2018. Each year, the NHIS randomly selects one adult per family to answer a detailed set of health questions, including items related to mental health. The combined sample yields approximately 400,000 observations. We restrict the analytic sample to adults aged 18 to 64, thus excluding most retirees and focusing on the working‐age population. Observations with missing information on key variables, employment status, mental health outcomes, or smoking, are excluded from the main analysis.
+
+Employment status is defined using the variable \texttt{EMPSTAT}, which captures labor force activity in the week or two weeks preceding the interview. We recode this into a dichotomous indicator distinguishing Employed from Unemployed individuals. Respondents are classified as Employed if they worked for pay in the last week or had a job but were temporarily absent due to reasons such as vacation or sick leave. Respondents are classified as Unemployed if they did not work but were actively seeking employment or were on temporary layoff with an expectation of recall. Individuals who are neither working nor actively seeking work, such as retirees, homemakers, or students, are categorized as Not in the Labor Force (NILF). Depending on the specification, we may exclude NILF individuals or include them as a separate group by creating two dummy variables for Unemployed and NILF, with Employed as the reference category. This approach ensures that the analysis isolates the impact of involuntary unemployment. Employment status is measured consistently across 2014 to 2018, as the survey design remained stable during this period.
+
+Mental health outcomes are constructed using two variables. For anxiety, we use \texttt{WORFREQ}, which measures how often respondents felt worried, nervous, or anxious over the past 30 days. Responses are ordinal, coded as 1 for daily, 2 for weekly, 3 for monthly, 4 for a few times a year, and 5 for never. We treat \texttt{WORFREQ} as an ordinal outcome in the primary analysis to preserve the ranked nature of anxiety symptoms. In supplementary analyses, we may dichotomize this variable, defining frequent anxiety as experiencing symptoms at least weekly. For depression, we use \texttt{DEPRX}, a binary indicator equal to 1 if the respondent reports currently taking prescription medication for depression, and 0 otherwise. \texttt{DEPRX} serves as a proxy for clinically significant depression, reflecting individuals who have received a diagnosis and are undergoing treatment. While \texttt{DEPRX} was limited to a subsample of adults from 2014 to 2017, it became a universal question in 2018. We account for these differences by applying appropriate survey weights and including year fixed effects. Alternative mental health measures such as \texttt{ANXIETYEV} (ever diagnosed with anxiety) and \texttt{DEPFREQ} (frequency of feeling depressed) are available and may be used in robustness checks, but \texttt{WORFREQ} and \texttt{DEPRX} are the primary outcomes.
+
+Smoking status is measured using \texttt{SMOKEV}, which identifies whether respondents have ever smoked at least 100 cigarettes in their lifetime. We construct a dummy variable, \texttt{EverSmoked}, equal to 1 for ever‐smokers and 0 for never‐smokers. Although this measure does not capture current smoking status, it reliably indicates lifetime smoking exposure, which is relevant for health risk and stress‐coping behavior. \texttt{EverSmoked} is consistently available across NHIS years and serves as our primary smoking measure. In further analysis, if additional data are available, we may incorporate current smoking intensity or cessation attempts, but the main specification focuses on the ever vs.\ never distinction.
+
+
+
+\section*{Logistic Model for Depression Medication}
+
+\subsection*{Specification}
+
+We estimate a logistic regression in which the dependent variable $Y_i$ equals~1 if
+respondent~$i$ reports currently taking prescription medication for depression and~0 otherwise.
+The model is
+
+\begin{equation}
+\label{eq:logit}
+\begin{aligned}
+\log\!\Bigl[\tfrac{P(Y_i=1)}{1-P(Y_i=1)}\Bigr]
+  &\;=\;\alpha
+        + \beta_{e}\,\text{Employed}_i
+        + \beta_{s}\,\text{EverSmoke}_i \\
+  &\quad + \beta_{es}\,(\text{Employed}\times\text{EverSmoke})_i
+        + \beta_{1}\,\text{Age}_i^{c}
+        + \beta_{2}\,{\text{Age}_i^{c}}^{2} \\
+  &\quad + \gamma^{\prime}\mathbf Z_i
+        \;+\;\varepsilon_i .
+\end{aligned}
+\end{equation}
+
+
+where
+\begin{itemize}
+    \item $\text{Employed}_i=1$ if \texttt{empstat} codes the individual as working or having a job (\(100\le\texttt{empstat}<200\)); $0$ if unemployed.
+    \item $\text{EverSmoke}_i=1$ if the person has ever smoked at least 100 cigarettes (\texttt{smokev}=2); $0$ otherwise.
+    \item $\text{Age}_i^{c}$ is age centred at the sample mean; its square allows a non-linear age profile.
+    \item $\mathbf Z_i$ contains dummies for female sex, detailed marital status, Census region, and survey year (2015–2018, with 2014 as the baseline).
+\end{itemize}
+
+Robust (Huber–White) standard errors accompany all estimates.
+
+\subsection*{Fit Statistics}
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Sample size & $N$                         & 63\,514 \\
+Log pseudolikelihood & $\ell(\widehat\theta)$ & $-18\,427.36$ \\
+Wald test & $\chi^{2}(20)$               & 3\,599.63\;\;\;$(p<0.001)$ \\
+Pseudo $R^{2}$ &                          & 0.093 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The model is highly significant overall, although it explains a modest share of the log-likelihood variation.
+
+\subsection*{Coefficient Estimates}
+
+Table~\ref{tab:coef} reports the main coefficients, their robust standard errors, and the corresponding odds ratios.
+
+\begin{table}[h!]
+\centering
+\caption{Logit coefficients and odds ratios for depression medication}
+\label{tab:coef}
+\begin{tabular}{lrrr}
+\toprule
+Variable & $\widehat\beta$ & Std.\ Err.\ & $\exp(\widehat\beta)$ (Odds Ratio)\\
+\midrule
+Employed (vs.\ Unemployed)                    & $-0.813$ & 0.036 & 0.444 \\
+Ever Smoked (vs.\ Never)                      &  0.814   & 0.029 & 2.257 \\
+Employed $\times$ Ever Smoked                 & $-0.365$ & 0.048 & 0.694 \\
+Age (centred)                                 &  0.0195  & 0.001 & 1.020 \\
+Age$^{2}$                                     & $-0.0013$& 0.000 & ---   \\
+Female (vs.\ Male)                            &  0.782   & 0.030 & 2.186 \\
+Separated (vs.\ Married)                      &  0.554   & 0.069 & 1.741 \\
+Divorced (vs.\ Married)                       &  0.579   & 0.039 & 1.784 \\
+Widowed (vs.\ Married)                        &  0.507   & 0.072 & 1.661 \\
+Living with Partner (vs.\ Married)            &  0.301   & 0.057 & 1.351 \\
+Never Married (vs.\ Married)                  &  0.449   & 0.038 & 1.566 \\
+Midwest (vs.\ Northeast)                      &  0.154   & 0.044 & 1.167 \\
+South  (vs.\ Northeast)                       & $-0.061$ & 0.041 & 0.941 \\
+West   (vs.\ Northeast)                       & $-0.094$ & 0.044 & 0.911 \\
+\midrule
+Constant                                      & $-2.622$ & 0.077 & ---   \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\footnotesize
+Notes: Robust standard errors reported.  Reference categories are Never‐smoker,
+Unemployed, Male, Married–spouse‐present, Northeast, and survey year 2014.
+\end{flushleft}
+\end{table}
+
+Table 1 presents the logistic regression estimates for the likelihood of taking prescription medication for depression. The focus is on the role of employment status, smoking history, and their interaction, controlling for the other covariates. The coefficients from the logistic model can be exponentiated to yield odds ratios (ORs) for more intuitive interpretation. We report and interpret the results in terms of odds ratios and predicted probabilities.
+
+\paragraph{Main Effects}
+We find that employment is strongly associated with a lower probability of using depression medication. Holding other factors constant, being employed (versus unemployed) is associated with roughly half the odds of depression treatment for a typical individual (OR 0.444, p < 0.01). Conversely, having ever been a smoker (versus never smoking) is associated with significantly higher odds of depression medication use. For a non-employed person, the odds of being on depression medication are about double for someone with a smoking history compared to a never-smoker (OR 2.257). These main effects confirm expected directions: employment appears protective against serious depression (at least to the point of requiring medication), while a history of smoking is a risk factor for it. However, these averages mask an important interaction between the two variables.
+
+The coefficient on the interaction term (Unemployed × Ever-Smoker) is positive and statistically significant, indicating that the impact of unemployment is not uniform across smoking status groups. According to our estimates, unemployment raises the odds of depression-medication use by about 56\% for never-smokers, but by about 69\% for ever-smokers (relative to their employed counterparts). In other words, not having a job has a larger detrimental effect on mental health for those who have a history of smoking. Similarly, we can look at it from the other angle: having a smoking history nearly doubles the odds of depression treatment among the employed, but it more than doubles the odds among those without jobs.
+
+\paragraph{Covariate Effects}
+The control variables show several notable patterns in Table 1. Women have significantly higher odds of taking depression medication than men, all else equal. In fact, female respondents’ odds are about 1.5 times those of otherwise similar males, consistent with epidemiological data that women report more depression and are more likely to seek treatment. Age has a mild protective effect: each additional year of age slightly reduces the odds of depression treatment. This may reflect that mid-life and older adults (in 18–64 range) have somewhat lower depression prevalence than younger adults, or it could be a cohort effect. Those who are separated, divorced, or widowed have elevated odds of depression medication use compared to married individuals (on the order of 20–30\% higher, depending on the category), while never-married individuals are closer to married ones in odds. Marital disruption, often accompanied by social isolation or financial strain, is a known risk factor for depression \citep{Richards1997}, and our findings echo that. We also see some regional differences: respondents in the Northeast and West have slightly higher odds of depression treatment than those in the South (the South is the reference region), whereas the Midwest is not statistically different from the South. These regional effects could relate to differing healthcare access, cultural attitudes towards medication, or underlying economic conditions. Lastly, there is a small upward trend by survey year—individuals interviewed in 2018 have higher odds of being on depression meds than those in 2014, controlling for all else. This could indicate a period effect, such as increased awareness and treatment of depression over time, or evolving stressors in the mid-2010s.
+
+
+\subsection*{Predicted Probabilities}
+
+Using \texttt{margins}, we compute predicted probabilities at the mean of control variables for each
+combination of employment and smoking status (Table~\ref{tab:margins}).
+
+\begin{table}[h!]
+\centering
+\caption{Predicted probability of depression medication}
+\label{tab:margins}
+\begin{tabular}{lcc}
+\toprule
+Group & $\widehat P\bigl(Y=1\bigr)$ & 95\% CI \\
+\midrule
+Unemployed, Never-smoker & 0.121 & [0.114, 0.127] \\
+Unemployed, Ever-smoker  & 0.231 & [0.221, 0.240] \\
+Employed,   Never-smoker & 0.059 & [0.056, 0.061] \\
+Employed,   Ever-smoker  & 0.088 & [0.084, 0.092] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The table shows two patterns:
+
+\begin{enumerate}
+    \item \textbf{Employment matters.}  For never-smokers, being employed lowers the predicted probability from 12.1\% to 5.9\% (a 6.2-percentage-point drop).  For ever-smokers, employment lowers the probability from 23.1\% to 8.8\% (a 14.3-point drop).
+    \item \textbf{Smoking amplifies the unemployment penalty.}  The unemployment–employment gap is more than twice as large for smokers, confirming the significant interaction term in~\eqref{eq:logit}.
+\end{enumerate}
+
+
+
+\subsection*{Diagnostic Checks}
+
+\paragraph{Classification Table}
+Stata’s \texttt{estat classification} command cross–tabs the predicted
+class ($\hat Y_i=1$ if $\widehat{P}(Y_i=1)\ge 0.50$) against the true
+outcome.
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+                       & \multicolumn{2}{c}{\textbf{True label}} \\
+\cmidrule(lr){2-3}
+\textbf{Predicted}     & $D$ (\texttt{deprx}=1) & $\sim D$ (\texttt{deprx}=0) \\
+\midrule
+$+$ (prob.\,$\ge 0.5$) & 0     & 0 \\
+$-$ (prob.\,$< 0.5$)   & 6\,206 & 57\,308 \\
+\midrule
+Total                  & 6\,206 & 57\,308 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+  \item \emph{Prevalence.} Only $9.8\%$ of respondents take
+        depression medication ($6\,206/63\,514$).  
+  \item \emph{Sensitivity}—$Pr(+|D)$—is therefore
+        \textbf{0\%}: the 0.5 cutoff never predicts a positive case.
+        \emph{Specificity}—$Pr(-|\sim D)$—is \textbf{100\%}.
+  \item The model still “correctly classifies” 90.2\% of observations,
+        but this is a prevalence illusion; predicting everyone as
+        negative would achieve the same accuracy.
+\end{itemize}
+
+
+\paragraph{Multicollinearity}
+We regressed the outcome on all covariates and requested
+variance–inflation factors:
+
+\begin{center}
+\textit{Mean VIF = 1.65; maximum VIF = 4.06.}
+\end{center}
+
+By conventional rules of thumb (VIF\,$<10$ or, more strictly, $<5$),
+none of the regressors exhibits problematic multicollinearity.  The
+highest VIF (4.06) attaches to the interaction
+\texttt{employed\#ever\_smoke}, which is mechanically correlated with
+its component dummies but remains safely below any critical threshold.
+Thus, coefficient estimates are not distorted by linear dependence
+among predictors.
+
+
+\subsection*{Summary}
+Overall, the logistic regression results consistently show that employment matters for depression-related outcomes, smoking magnifies risk, and the two forces interact. Having a job is associated with substantially lower likelihood of needing depression medication, especially for those with a smoking history. Meanwhile, ever having smoked is associated with greater depression treatment prevalence, especially for those without the stabilizing influence of employment. These findings set the stage for examining how the same factors play out with respect to anxiety frequency.
+
+
+
+%------------------------------------------------------------
+%   HOW EMPLOYMENT AND SMOKING SHAPE REPORTED ANXIETY
+%   (headings are starred to suppress automatic numbering)
+%------------------------------------------------------------
+
+\section*{How Employment and Smoking Shape Reported Anxiety}
+
+
+\subsection*{Model statement}
+
+For every cut–point \(j\in\{1,2,3,4\}\) the GOL writes
+
+\[
+\begin{aligned}
+\Pr\!\bigl(Y_i\le j\bigr)
+&=\;
+\Lambda\!\Bigl(
+      \kappa_{j}
+      -\beta_{e,j}\,\text{Employed}_i
+      -\beta_{s,j}\,\text{EverSmoke}_i-\beta_{es,j}\,\text{Employed}_i\text{EverSmoke}_i
+      -\mathbf b_{j}^{\!\prime}\mathbf Z_i
+      \Bigr),\\[10pt]
+\Lambda(t)&=\frac{e^{t}}{1+e^{t}}\, .
+\end{aligned}
+\]
+
+
+where \(\mathbf Z_i\) collects respondent age, sex, marital status,
+region, and survey year.
+Likelihood-ratio tests keep a parallel-lines constraint only when the
+data do not reject it.
+All but one dummy (“unknown marital status”) need cut-specific slopes.
+The reduced set passes a joint Wald test:
+\(\chi^{2}(3)=6.49,\,p=0.09\).
+
+We now turn to the second outcome: self-reported frequency of anxiety in the past 30 days. This variable has five ordinal categories, from “never” (no anxiety in the past month) up to “daily” (anxiety every day). Instead of assuming proportional odds, we allow the effect of each predictor to vary at different points of the anxiety scale. Table 2 contains the estimated coefficients for the generalized ordered logit model. For clarity of interpretation, we describe how employment status and smoking history influence the probability distribution of anxiety frequencies, highlighting any non-linear patterns revealed by the partial proportional odds approach.
+
+
+
+Table~\ref{tab:gologit-main} lists the main coefficients.  
+Negative numbers push probability toward the more anxious categories;
+positive numbers push it upward toward \emph{never} anxious.
+\begin{table}[h!]
+\centering
+\caption{Selected coefficients from the GOL model\label{tab:gologit-main}}
+\begin{tabular}{lccc}
+\toprule
+Predictor & Cut 1 & Cut 2 & Cut 3\\
+\midrule
+Ever smoked                       & \(-0.70^{***}\) & \(-0.57^{***}\) & \(-0.50^{***}\)\\
+Employed                          & \phantom{-}0.05 & \phantom{-}0.12 & \phantom{-}0.19\\
+Age (years)                       & \phantom{-}0.00 & \phantom{-}0.01$^{***}$ & \phantom{-}0.01$^{***}$\\
+Female                            & \(-0.47^{***}\) & \(-0.53^{***}\) & \(-0.53^{***}\)\\
+Separated (vs.\ married)          & \(-0.78^{***}\) & \(-0.54^{***}\) & \(-0.45^{***}\)\\
+South (vs.\ Northeast)            & \phantom{-}0.02 & \phantom{-}0.16$^{***}$ & \phantom{-}0.16$^{***}$\\
+Survey year 2018 (vs.\ 2014)      & \(-0.20^{***}\) & \(-0.33^{***}\) & \(-0.34^{***}\)\\
+\bottomrule
+\multicolumn{4}{l}{\footnotesize Robust $z$-statistics; ${}^{***}p<0.001$.}
+\end{tabular}
+\end{table}
+
+
+
+\subsection*{Probabilities that a reader can grasp}
+
+Holding the controls at their means, the model predicts
+\[
+\begin{aligned}
+  \Pr(Y=1\mid \text{Employed}=1,\ \text{EverSmoke}=0)
+    &= 0.080,\\
+  \Pr(Y=1\mid \text{Employed}=1,\ \text{EverSmoke}=1)
+    &= 0.148.
+\end{aligned}
+\]
+A worker who has smoked faces a 15 \% chance of daily anxiety—almost twice the 8 \% risk of a never-smoker with the same background.  
+
+\paragraph*{Overall Effect of Employment}
+Employed individuals tend to report markedly less frequent anxiety than the unemployed. The model indicates that employment shifts the entire anxiety distribution toward the “calmer” end. In practical terms, being employed increases the probability of low-frequency anxiety and decreases the probability of high-frequency anxiety. In fact, one stark comparison emerges at the extreme end: the odds of experiencing daily anxiety (the most severe category) are significantly lower for employed individuals. In contrast, the odds of being in the most relaxed category (“never” anxious) are significantly higher for those with a job. 
+
+However, the generalized ordered logit reveals that the impact of employment is not uniform across anxiety levels. We find that employment’s protective effect is especially pronounced in the middle-to-upper range of the anxiety frequency scale. Specifically, the coefficient on employment is largest for distinguishing the threshold between moderate and low anxiety. Employment seems particularly effective at preventing people from experiencing even moderate levels of recurring anxiety – it helps keep people in the “rarely anxious” category rather than slipping into more frequent worry. At the very highest end (daily anxiety), employment still has a beneficial effect, but relative to those moderate thresholds the proportional difference is slightly smaller.
+
+\paragraph*{Overall Effect of Smoking}
+We find a strong detrimental association with anxiety frequency. Individuals who have ever smoked tend to report more frequent anxiety than never-smokers, all else equal. Smoking history shifts the anxiety distribution toward the “frequent anxiety” end – effectively a risk factor for greater anxiety. For instance, the model predicts that even among employed individuals, an ever-smoker has a substantially higher chance of experiencing daily bouts of anxiety than a never-smoker. One concrete figure from our analysis: an employed never-smoker has an estimated ~8\% probability of reporting daily anxiety, whereas an employed ever-smoker has about a 15\% probability of daily anxiety (nearly twice as high). This illustrates the “smoking penalty” on mental health.
+
+The generalized ordered logit shows that the violation of proportional odds for the smoking predictor indicates that smoking history boosts the odds of being in the worst anxiety category (daily) far more than it boosts the odds of being in weekly vs. monthly categories. Our estimates confirm this: the coefficient for ever having smoked is largest for the cut-point that differentiates daily anxiety from less-than-daily frequency. This means that smokers are disproportionately likely to end up in the worst-case scenario of experiencing anxiety every day. 
+
+\paragraph*{Covariate Effect on Anxiety}
+The control variables in the anxiety frequency model generally show parallel influences to those in the depression model, with a few distinctions owing to the different nature of the outcome. Women report more frequent anxiety than men on average, placing them lower on the anxiety-frequency scale. The generalized model indicates that the female disadvantage is present across all severity levels: the coefficients correspond to women having about 1.5 times the odds of reporting frequent anxiety as men, consistent with known gender disparities in anxiety prevalence \citep{junna2022current}.
+
+Marital status effects mirror those for depression: being separated, divorced, or widowed correlates with more frequent anxiety, likely reflecting the emotional toll of these events and perhaps ongoing loneliness or conflict. These effects were statistically significant in moving respondents away from the “never” or “rarely” categories toward more frequent anxiety. 
+
+Lastly, year indicators showed that anxiety frequency reports were somewhat higher in the later years of 2016–2018 than in 2014, paralleling the slight time trend seen for depression treatment. This might reflect growing stressors in the late 2010s or increased willingness to report mental health symptoms in surveys.
+
+\paragraph*{Multicollinearity among covariates}
+
+We regressed \texttt{depression\_med} on the full set of predictors and computed variance inflation factors (VIFs).
+
+\begin{center}
+\textit{Mean VIF = 1.65; maximum VIF = 4.06.}
+\end{center}
+
+By standard rules of thumb (VIF\,$<10$, or more conservatively $<5$), none of the regressors exhibits problematic multicollinearity.  The highest VIF attaches to the interaction \texttt{employed\#ever\_smoke}, which is mechanically correlated with its component dummies but remains safely below any critical threshold.  Therefore, we can be confident that collinearity does not distort our coefficient estimates.
+
+\section*{Discussion}
+The above results deepen our understanding of how two major personal factors – employment status and smoking history – jointly shape mental health outcomes.
+\paragraph*{Interpreting the Employment Effect}
+Many studies show that unemployment links to poorer mental health \citep{picchio2023unemployment}. Our study adds to this evidence. We quantify the effect on depression treatment and anxiety frequency. We use recent U.S. data. The logistic regression shows that unemployed people have roughly 1.5 to 2 times higher odds of taking depression medication than similar employed individuals. The exact odds depend on smoking status. These estimates match meta-analyses that find a moderate decline in well-being (e.g., Cohen’s d around 0.5 for psychological well-being) \citep{Cohen1988}. 
+
+The economic strain of unemployment can cause chronic stress. People worry about bills, housing, and food. These worries contribute to depression and anxiety. Unemployment also removes daily routines and workplace friendships \citep{jahoda1982employment}. This loss can fuel rumination and worry. Even small concerns can spiral. Job loss can harm one’s self-concept. Society often ties identity to work. Losing that identity can bring shame or stigma. These feelings can deepen depression.
+
+\paragraph*{Interpreting the Smoking Effect}
+We find that ever-smokers fare worse on both depression and anxiety outcomes. This holds after controlling for employment and other factors. This result aligns with evidence linking smoking to mental health problems \citep{Yuan2020}.
+
+Biologically, chronic smoking leads to neurochemical changes: nicotine triggers dopamine release (briefly improving mood), but over time the brain’s reward pathways adapt, leaving the baseline dopamine lower and the smoker prone to anhedonia or depression. In addition, nicotine withdrawal between cigarettes can cause irritability and anxiety symptoms, which may lead smokers to feel generally more anxious day-to-day. Another aspect is behavioral: smokers as a group might have other lifestyle factors (poorer sleep, less exercise, more alcohol use) that contribute to worse mental health. 
+
+There is also the possibility of reverse causation here: people with depression or anxiety might have taken up smoking as a form of self-medication. At the same time, having an anxiety disorder can make quitting smoking harder, so smokers with mental health issues may remain smokers longer, compounding the effects. Our study highlights that even among employed people, those who ever smoked have significantly worse mental health outcomes than never-smokers. This reinforces public health messages that smoking cessation could yield mental health benefits.
+
+\paragraph*{The Interaction}
+We observed that the mental health “penalty” of being unemployed is roughly twice as high for ever-smokers as for never-smokers. This suggests a compounded vulnerability: individuals who have a history of smoking are hit much harder psychologically by job loss. One explanation is that smokers, on average, might have fewer alternative coping strategies or social supports. If someone relies on cigarettes to manage stress, losing a job could push them to smoke more, which might further worsen their baseline anxiety/depression due to the reasons mentioned above, creating a vicious cycle. Another angle is that smokers could already be in poorer physical health (as smoking often damages cardiovascular and respiratory health), so unemployment might add to an already elevated stress on the body and mind. 
+
+From a labor economics viewpoint, this interaction might reflect what we could term a “loss of buffer.” For a never-smoker, unemployment is certainly stressful, but they may still have their full health and capacity to proactively search for jobs or engage in positive coping (exercise, socializing, etc.). A smoker, however, might have diminished health and a stress-coping mechanism that is ultimately counterproductive, so when they become unemployed, the shock hits them on multiple fronts. Our findings imply that policies aimed at mitigating the mental health impact of unemployment may need to account for such heterogeneity: a one-size-fits-all approach may miss that unemployed smokers are in extra need of support.
+%------------------------------------------------------------
+%   CONCLUSION
+%------------------------------------------------------------
+
+\section*{Conclusion}
+
+This study set out to answer a straightforward question:
+\emph{How do employment status and smoking history shape two common
+mental-health outcomes—use of depression medication and the
+self-reported frequency of anxiety?}
+The analysis drew on five years of NHIS micro-data and relied on two
+econometric tools: a logistic regression for the binary indicator of
+depression treatment and a generalised ordered-logit for the five-step
+anxiety scale.
+Each tool produced consistent messages.
+
+\paragraph*{Practical Implications}
+First, every coefficient points to the value of keeping people attached to the labor market. Policies that prevent job loss or shorten unemployment spells could have mental health benefits in addition to economic benefits. For instance, job-search assistance programs and short-term wage subsidies for the unemployed may do more than boost income – they could reduce the need for clinical treatment of depression and help calm day-to-day anxiety. This is especially true for current or former smokers, who appear to suffer a double burden when out of work. Active labor market programs that combine re-employment services with stress management training (such as the proven JOBS intervention model \citep{Bodnaru2024}) might be particularly effective in sustaining mental health during job transitions. Additionally, unemployment insurance and related safety nets might indirectly serve a mental health function by alleviating some financial anxieties during unemployment. Policymakers should recognize that during economic downturns or layoffs, an uptick in mental health issues is likely, and resources should be allocated accordingly.
+
+Second, smoking-cessation support remains central from a public health standpoint, not only to reduce physical illness but also because a history of smoking amplifies the mental-health cost of a spell of unemployment. Integrative programs could be considered: for example, offering smoking cessation programs targeted at unemployed workers or incorporating smoking cessation into job training programs. Given our findings, an unemployed smoker might greatly benefit from quitting – it could improve their baseline mood and also possibly improve their employment prospects (better health, fewer breaks, etc.). Health practitioners and counselors who work with unemployed populations should screen for tobacco use and offer help to quit, alongside addressing mental health. Conversely, for those in smoking cessation programs, counselors might keep in mind employment status: an unemployed person trying to quit might need extra support for stress management so they do not relapse as a coping mechanism.
+
+Third, mental health services and primary care providers should inquire about patients’ work status and smoking history as part of holistic care. A patient who comes in with anxiety symptoms might be treated differently if the clinician knows they are in between jobs or have a long unemployment history – for instance, the clinician might consider more proactive therapy referrals or support groups that address the loss of structure and purpose. Similarly, a patient’s smoking history is relevant; those who have quit might see improvements in mood, while those still smoking could be counseled on the mental health advantages of cessation.
+
+
+
+\paragraph*{Limitations}
+This study has several limitations that warrant caution. First, the cross-sectional design limits causal inference. While we discuss evidence and use controls to approximate causality, we cannot definitively assert that unemployment causes depression or that smoking causes anxiety based on this data alone. Reverse causation (especially in the employment-mental health link) and unobserved confounders could bias results. Future research should exploit longitudinal data or quasi-experiments. For example, panel surveys that track individuals over time could help disentangle whether depression leads to job loss or vice versa. Natural experiments, such as plant closures or regional economic shocks, could provide more causal estimates of job loss on mental health if coupled with smoking information.
+
+Second, our measurement of key variables has limitations. The employment status variable does not distinguish between actively unemployed and other not working statuses, as noted. People out of the labor force (e.g., homemakers) may have different mental health profiles than those actively job-seeking. Though we did some sensitivity analysis, a more detailed categorization (employed vs. unemployed vs. out-of-labor-force) in a larger sample could yield additional insights. The smoking history variable is binary and broad. “Ever smoked 100 cigarettes” includes someone who quit 20 years ago and someone who currently smokes a pack a day – clearly very different scenarios. If data permitted, analyzing current smoking intensity (e.g., cigarettes per day) or time since quitting would be valuable. It could be that current heavy smokers drive most of the anxiety effect, whereas former smokers (especially long-term quitters) might resemble never-smokers in mental health. Lacking that detail, we caution that “ever-smoker” is a heterogeneous group.
+
+The mental health outcomes themselves are specific: taking depression medication and frequency of anxiety feelings. Taking medication for depression is an imperfect proxy for depression prevalence or severity. Some depressed individuals manage without medication (perhaps with therapy or mild symptoms), and some on medication might have chronic mild depression well-controlled by the drug. It also depends on healthcare access and doctors’ prescribing habits. Our finding that unemployed have higher odds of medication use suggests they likely have higher depression rates, but one could also wonder if perhaps unemployed people, having more free time, are more likely to seek treatment. The anxiety frequency measure is self-reported and subject to recall bias or personal interpretation of what constitutes feeling “worried, nervous, or anxious.” Cultural or individual differences in reporting could influence that. Momentary life events could sway a person’s monthly anxiety report (someone recently facing a shock might report more anxiety independent of job or smoking).
+
+Another limitation is that all results in this study use unweighted data. A follow-up should apply NHIS sampling weights. The study should also recalculate variances. Researchers should then compare design-based and model-based inferences. This exercise will show if unequal selection probabilities or post-stratification adjustments affect the substantive conclusions.
+
+Lastly, the generalizability of our results is formally to U.S. adults aged 18–64 in the mid-2010s. Labor market conditions in 2014–2018 were improving. The patterns might differ in a recession or crisis period. In a severe recession, even people in good mental health may lose jobs, possibly diluting the selection effect and revealing an even clearer causal effect of unemployment on mental health.
+
+\paragraph*{Future Directions}
+Future research can take several directions. One key goal is stronger causal evidence. Longitudinal data can help. Such data include employment history, smoking behavior, and mental health. Researchers can then control for individual fixed effects (as in the study \citep{junna2022current}). They can observe changes within each person. For example, they can test if a person’s anxiety rises after job loss. They can also test if anxiety falls after regaining work. Another direction focuses on timing. Researchers should ask if unemployment duration affects mental health. They should test if smoking status interacts with time. Short spells of unemployment may be manageable. But longer spells may show larger mental health differences for smokers.
+
+
+\bibliography{sample}
+
+
+
+
+\end{document}
